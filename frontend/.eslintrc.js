@@ -1,19 +1,37 @@
 module.exports = {
-  root: true,
   env: {
     browser: true,
-    node: true
-  },
-  parserOptions: {
-    parser: '@babel/eslint-parser',
-    requireConfigFile: false
+    es2021: true,
+    node: true,
   },
   extends: [
-    '@nuxtjs',
-    'plugin:nuxt/recommended'
+    'eslint:recommended',
+    'airbnb-base',
+    'plugin:vue/essential',
+    'plugin:vue/vue3-recommended',
+    'plugin:nuxt/recommended',
   ],
+  parser: 'vue-eslint-parser',
+  parserOptions: {
+    ecmaVersion: 12,
+    sourceType: 'module',
+  },
   plugins: [
+    'vue',
   ],
-  // add your custom rules here
-  rules: {}
-}
+  rules: {
+    'linebreak-style': ['error', 'windows'],
+    'import/no-extraneous-dependencies': [
+      'error', {
+        devDependencies: true,
+      },
+    ],
+  },
+  settings: {
+    'import/resolver': {
+      nuxt: {
+        extensions: ['.js', '.vue'],
+      },
+    },
+  },
+};

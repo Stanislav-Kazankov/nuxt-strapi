@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-strapi",
+  "name": "final-task",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -7,24 +7,61 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
+    "eslint:init": "eslint --init",
     "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
-    "lint:style": "stylelint \"**/*.{vue,css}\" --ignore-path .gitignore",
-    "lint": "npm run lint:js && npm run lint:style"
+    "lint:js:fix": "eslint --ext \".js,.vue\" --ignore-path .gitignore . --fix",
+    "lint:style": "stylelint \"**/*.{vue,css,scss}\" --ignore-path .gitignore",
+    "lint:style:fix": "stylelint \"**/*.{vue,css,scss}\" --ignore-path .gitignore --fix",
+    "lint": "npm run lint:js && npm run lint:style",
+    "lint:fix": "npm run lint:js:fix && npm run lint:style:fix"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.13.6",
-    "core-js": "^3.15.1",
-    "nuxt": "^2.15.7"
+    "@nuxtjs/axios": "^5.13.1",
+    "@nuxtjs/composition-api": "0.26.0",
+    "animejs": "3.2.1",
+    "core-js": "^3.8.3",
+    "jquery": "3.6.0",
+    "lodash": "4.17.21",
+    "nuxt": "2.15.2"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.14.7",
-    "@nuxtjs/eslint-config": "^6.0.1",
+    "@nuxtjs/eslint-config": "^5.0.0",
     "@nuxtjs/eslint-module": "^3.0.2",
+    "@nuxtjs/style-resources": "1.0.0",
     "@nuxtjs/stylelint-module": "^4.0.0",
-    "eslint": "^7.29.0",
-    "eslint-plugin-nuxt": "^2.0.0",
-    "eslint-plugin-vue": "^7.12.1",
-    "stylelint": "^13.13.1",
-    "stylelint-config-standard": "^22.0.0"
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.18.0",
+    "eslint-config-airbnb-base": "14.2.1",
+    "eslint-import-resolver-nuxt": "1.0.1",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-nuxt": "2.0.0",
+    "eslint-plugin-vue": "7.7.0",
+    "husky": "5.1.3",
+    "lint-staged": "10.5.4",
+    "node-sass": "5.0.0",
+    "prettier": "2.2.1",
+    "pug": "3.0.2",
+    "pug-plain-loader": "1.1.0",
+    "sass": "1.32.8",
+    "sass-loader": "10.1.1",
+    "stylelint": "^13.9.0",
+    "stylelint-config-airbnb": "0.0.0",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-order": "4.1.0",
+    "stylelint-scss": "3.19.0",
+    "vue": "^2.6.12",
+    "vue-server-renderer": "^2.6.12"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.(vue|css|scss)": [
+      "prettier --write",
+      "lint:fix",
+      "git add"
+    ]
   }
 }

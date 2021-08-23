@@ -1,0 +1,31 @@
+.page {
+  align-items: center;
+  display: grid;
+  min-height: 100%;
+
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  margin-top: -10px;
+
+  &__centerer {
+    @include make-centerer();
+  }
+
+  &__h1 {
+    display: block;
+    width: 600px;
+    font-size: 40px;
+    line-height: 50px;
+
+    font-weight: 400;
+    letter-spacing: 1px;
+
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+
+  &__p {
+    width: 680px;
+  }
+}
