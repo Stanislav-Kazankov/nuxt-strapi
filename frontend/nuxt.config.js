@@ -15,6 +15,11 @@ export default {
     ],
   },
 
+  loading: {
+    color: '#76a704',
+    height: '3px',
+  },
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '@/assets/sass/style.scss',
@@ -44,8 +49,14 @@ export default {
     '@nuxtjs/style-resources',
   ],
 
+  env: {
+    baseUrl: process.env.BASE_URL || 'http://localhost:1337',
+  },
+
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseURL: 'http://localhost:1337',
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

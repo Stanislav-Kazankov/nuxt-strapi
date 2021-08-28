@@ -2,20 +2,23 @@
   <div class="page">
     <div class="page__centerer">
       <h1 class="page__h1">
-        Мои контакты:
+        {{ heading }}
       </h1>
       <ul class="contacts">
         <li
-          v-for="(contact, index) of contactData"
-          :key="index"
+          v-for="
+            ({ title, value, url }, key)
+              of processedContacts
+          "
+          :key="key"
           class="contacts__item"
         >
-          {{ contact.caption }}:
+          {{ title }}
           <a
             class="contacts__link"
-            :href="contact.url"
+            :href="url"
           >
-            {{ contact.value }}
+            {{ value }}
           </a>
         </li>
       </ul>
@@ -23,27 +26,35 @@
   </div>
 </template>
 <script>
+import definePageDataLoader
+  from '@/mixins/definePageDataLoader';
+import {
+  processPhone, processEmail,
+  processTelegram,
+} from '@/modules/contactProcessing';
+
 export default {
+  mixins: [
+    definePageDataLoader(
+      'contacts-data',
+    ),
+  ],
   data() {
     return {
-      contactData: [
-        {
-          caption: 'Телефон',
-          url: 'tel:+79245180731',
-          value: '+7-924-518-0731',
-        },
-        {
-          caption: 'Email',
-          url: 'mailto:s.v.kazankov@mail.ru',
-          value: 's.v.kazankov@mail.ru',
-        },
-        {
-          caption: 'Telegram',
-          url: 'https://telegram.me/s_v_kazankov',
-          value: '@s_v_kazankov',
-        },
-      ],
+      heading: '',
+      phone: {},
+      email: {},
+      telegram: {},
     };
+  },
+  computed: {
+    processedContacts() {
+      return {
+        phone: processPhone(this.phone),
+        email: processEmail(this.email),
+        telegram: processTelegram(this.telegram),
+      };
+    },
   },
 };
 </script>
@@ -76,4 +87,3 @@ export default {
     }
   }
 </style>
-

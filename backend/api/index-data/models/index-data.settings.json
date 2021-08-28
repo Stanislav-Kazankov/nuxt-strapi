@@ -1,0 +1,37 @@
+{
+  "kind": "singleType",
+  "collectionName": "index_data",
+  "info": {
+    "name": "indexData",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "notWebp1xSrc": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "notWebpRestSrcs": {
+      "collection": "not-webp-rest-src"
+    },
+    "webpSrcs": {
+      "collection": "webp-src"
+    }
+  }
+}

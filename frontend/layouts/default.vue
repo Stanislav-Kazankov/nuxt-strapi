@@ -2,7 +2,7 @@
   <div class="default">
     <header class="default__header">
       <div class="default__centerer">
-        <navbar :item-data="navbarItemData" />
+        <navbar :pages="pages" />
       </div>
     </header>
     <main class="default__main">
@@ -11,8 +11,7 @@
     <footer class="default__footer">
       <div class="default__centerer">
         <p class="default__p">
-          Дизайн и фронтенд данного сайта выполнены мной.
-          © Все права защищены.
+          {{ copyrights }}
         </p>
       </div>
     </footer>
@@ -20,29 +19,19 @@
 </template>
 
 <script>
-import navbar from '@/components/navbar';
-
 export default {
-  components: {
-    navbar,
-  },
   data() {
     return {
-      navbarItemData: [
-        {
-          url: '/',
-          caption: 'Главная',
-        },
-        {
-          url: '/about',
-          caption: 'Обо мне',
-        },
-        {
-          url: '/contacts',
-          caption: 'Контакты',
-        },
-      ],
+      pages: [],
+      copyrights: '',
     };
+  },
+  async fetch() {
+    const layoutData = await this.$axios
+      .$get('/default-data')
+      .catch(() => {});
+    this.pages = layoutData.pages;
+    this.copyrights = layoutData.copyrights;
   },
 };
 </script>

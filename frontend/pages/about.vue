@@ -2,14 +2,30 @@
   <div class="page">
     <div class="page__centerer">
       <h1 class="page__h1">
-        Обо мне
+        {{ heading }}
       </h1>
       <p class="page__p">
-        Здравствуйте! Мне очень нравится фронтенд-разработка. Я давно мечтал
-        этим заниматься, но никак не мог понять, с чего начать изучение.
-        В прошлом году мне повезло: я нашел подходящие курсы и прошел их.
-        Сейчас я прохожу стажировку в компании AFFINAGE.
+        {{ paragraph }}
       </p>
     </div>
   </div>
 </template>
+
+<script>
+import definePageDataLoader
+  from '@/mixins/definePageDataLoader';
+
+export default {
+  mixins: [
+    definePageDataLoader(
+      'about-data',
+    ),
+  ],
+  data() {
+    return {
+      heading: '',
+      paragraph: '',
+    };
+  },
+};
+</script>

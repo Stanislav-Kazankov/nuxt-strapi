@@ -2,26 +2,29 @@
   <div class="page">
     <div class="page__centerer">
       <h1 class="page__h1">
-        Персональный сайт Станислава Казанкова
+        {{ heading }}
       </h1>
-      <img-container
-        :img-data="imgData"
-        class-name="photo-container"
-      />
+      <photo v-bind="$data" />
     </div>
   </div>
 </template>
 
 <script>
+import definePageDataLoader
+  from '@/mixins/definePageDataLoader';
+
 export default {
+  mixins: [
+    definePageDataLoader(
+      'index-data',
+    ),
+  ],
   data() {
     return {
-      imgData: {
-        name: 'photo',
-        width: 230,
-        height: 325,
-        alt: 'Моё фото',
-      },
+      heading: '',
+      notWebp1xSrc: {},
+      notWebpRestSrcs: [],
+      webpSrcs: [],
     };
   },
 };

@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "default_data",
+  "info": {
+    "name": "defaultData",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pages": {
+      "collection": "page"
+    },
+    "copyrights": {
+      "type": "text",
+      "required": true,
+      "unique": true
+    }
+  }
+}

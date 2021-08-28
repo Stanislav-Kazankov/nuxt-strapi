@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "phones",
+  "info": {
+    "name": "phone",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "value": {
+      "type": "biginteger",
+      "required": true,
+      "unique": true
+    }
+  }
+}

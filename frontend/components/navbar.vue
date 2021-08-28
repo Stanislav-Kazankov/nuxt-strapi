@@ -1,30 +1,33 @@
 <template>
   <ul class="navbar">
     <li
-      v-for="(item, index) of itemData"
-      :key="index"
+      v-for="
+        ({ title, relativeUrl }, key)
+          of pages
+      "
+      :key="key"
       class="navbar__item"
     >
       <nuxt-link
         class="navbar__link"
-        :to="item.url"
+        :to="relativeUrl"
         active-class="is-active"
         exact
         :prefetch="false"
       >
-        {{ item.caption }}
+        {{ title }}
       </nuxt-link>
     </li>
   </ul>
 </template>
 
 <script>
+import { createArrayPropConfig }
+  from '@/modules/propConfigs';
+
 export default {
   props: {
-    itemData: {
-      type: Array,
-      default: () => [],
-    },
+    pages: createArrayPropConfig(),
   },
 };
 </script>

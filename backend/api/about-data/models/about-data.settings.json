@@ -1,0 +1,26 @@
+{
+  "kind": "singleType",
+  "collectionName": "about_data",
+  "info": {
+    "name": "aboutData",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "paragraph": {
+      "type": "text",
+      "required": true,
+      "unique": false
+    }
+  }
+}

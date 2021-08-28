@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "not_webp_rest_srcs",
+  "info": {
+    "name": "notWebpRestSrc",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "dppx": {
+      "type": "decimal",
+      "required": true,
+      "unique": true
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "kind": "singleType",
+  "collectionName": "contacts_data",
+  "info": {
+    "name": "contactsData",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "required": true
+    },
+    "phone": {
+      "model": "phone"
+    },
+    "email": {
+      "model": "email"
+    },
+    "telegram": {
+      "model": "telegram"
+    }
+  }
+}
