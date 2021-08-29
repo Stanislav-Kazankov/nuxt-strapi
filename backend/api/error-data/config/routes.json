@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/error-data",
+      "handler": "error-data.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/error-data",
+      "handler": "error-data.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/error-data",
+      "handler": "error-data.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

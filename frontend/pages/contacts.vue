@@ -26,8 +26,8 @@
   </div>
 </template>
 <script>
-import definePageDataLoader
-  from '@/mixins/definePageDataLoader';
+import { definePageDataLoader }
+  from '@/mixins/dataLoadersDefinition';
 import {
   processPhone, processEmail,
   processTelegram,

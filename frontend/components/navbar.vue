@@ -15,7 +15,7 @@
         exact
         :prefetch="false"
       >
-        {{ title }}
+        {{title}}
       </nuxt-link>
     </li>
   </ul>

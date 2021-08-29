@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "error_data",
+  "info": {
+    "name": "errorData"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "message": {
+      "type": "text",
+      "required": true
+    },
+    "linkText": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

@@ -11,7 +11,7 @@
     <footer class="default__footer">
       <div class="default__centerer">
         <p class="default__p">
-          {{ copyrights }}
+          {{copyrights}}
         </p>
       </div>
     </footer>
@@ -19,19 +19,20 @@
 </template>
 
 <script>
+import { defineLayoutDataLoader }
+  from '@/mixins/dataLoadersDefinition';
+
 export default {
+  mixins: [
+    defineLayoutDataLoader(
+      '/default-data',
+    ),
+  ],
   data() {
     return {
       pages: [],
       copyrights: '',
     };
-  },
-  async fetch() {
-    const layoutData = await this.$axios
-      .$get('/default-data')
-      .catch(() => {});
-    this.pages = layoutData.pages;
-    this.copyrights = layoutData.copyrights;
   },
 };
 </script>

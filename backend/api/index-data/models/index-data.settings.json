@@ -32,6 +32,16 @@
     },
     "webpSrcs": {
       "collection": "webp-src"
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "alt": {
+      "type": "string",
+      "required": true,
+      "unique": true
     }
   }
 }

@@ -4,7 +4,7 @@
     class="photo"
   >
     <figcaption class="visually-hidden">
-      Фото Станислава Казанкова
+      {{title}}
     </figcaption>
     <picture>
       <source
@@ -14,7 +14,7 @@
       <img
         width="230"
         height="325"
-        alt="Станислав Казанков в тёмно-синей рубашке анфас"
+        :alt="alt"
         :srcset="notWebpRestSrcset"
         :src="src"
         @load="onImgLoad"
@@ -28,12 +28,17 @@ import _ from 'lodash';
 import {
   createObjectPropConfig,
   createArrayPropConfig,
+  createStringPropConfig,
 } from '@/modules/propConfigs';
 import createSrcset
   from './createSrcset';
 
 export default {
   props: {
+    title:
+      createStringPropConfig(),
+    alt:
+      createStringPropConfig(),
     notWebp1xSrc:
       createObjectPropConfig(),
     notWebpRestSrcs:

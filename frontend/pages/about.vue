@@ -2,18 +2,18 @@
   <div class="page">
     <div class="page__centerer">
       <h1 class="page__h1">
-        {{ heading }}
+        {{heading}}
       </h1>
       <p class="page__p">
-        {{ paragraph }}
+        {{paragraph}}
       </p>
     </div>
   </div>
 </template>
 
 <script>
-import definePageDataLoader
-  from '@/mixins/definePageDataLoader';
+import { definePageDataLoader }
+  from '@/mixins/dataLoadersDefinition';
 
 export default {
   mixins: [

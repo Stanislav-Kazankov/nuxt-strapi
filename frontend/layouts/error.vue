@@ -2,11 +2,30 @@
   <div class="page">
     <div class="page__centerer">
       <h1 class="page__h1">
-        Станица не найдена =(
+        {{message}}
       </h1>
       <nuxt-link to="/">
-        На главную
+        {{linkText}}
       </nuxt-link>
     </div>
   </div>
 </template>
+
+<script>
+import { defineLayoutDataLoader }
+  from '@/mixins/dataLoadersDefinition';
+
+export default {
+  mixins: [
+    defineLayoutDataLoader(
+      '/error-data',
+    ),
+  ],
+  data() {
+    return {
+      message: '',
+      linkText: '',
+    };
+  },
+};
+</script>
